@@ -16,3 +16,18 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.btn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 100vh;
+}
+
+button[data-stop],
+button[data-start] {
+  height: 42px;
+  width: 68px;
+  text-transform: uppercase;
+}
