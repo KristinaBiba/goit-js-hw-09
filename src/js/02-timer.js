@@ -1,4 +1,5 @@
 import flatpickr from 'flatpickr';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 import 'flatpickr/dist/flatpickr.min.css';
 
 const timerDays = document.querySelector('span[data-days]');
@@ -18,7 +19,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
-      window.alert('Please choose a date in the future');
+      Report.failure('', 'Please choose a date in the future', 'Okay');
     } else {
       startBtn.removeAttribute('disabled');
       chackedDate = selectedDates[0];

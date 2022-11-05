@@ -5,26 +5,20 @@ let active = false;
 let timerId = null;
 
 stopBtn.setAttribute('disabled', 'disabled');
+startBtn.addEventListener('click', colorChange);
+stopBtn.addEventListener('click', stopColorChange);
 
 function colorChange() {
-  if (active) {
-    return;
-  }
   timerId = setInterval(() => {
     body.style.backgroundColor = getRandomHexColor();
   }, 1000);
-  active = true;
   startBtn.setAttribute('disabled', 'disabled');
   stopBtn.removeAttribute('disabled');
 }
 
-startBtn.addEventListener('click', colorChange);
-
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-
-stopBtn.addEventListener('click', stopColorChange);
 
 function stopColorChange() {
   active = false;
