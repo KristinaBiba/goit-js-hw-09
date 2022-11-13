@@ -32,10 +32,11 @@ flatpickr('#datetime-picker', options);
 
 function onCountdown() {
   startBtn.setAttribute('disabled', 'disabled');
-  setInterval(() => {
+  const IntervalFunction = setInterval(() => {
     const date = new Date();
     const difference = chackedDate.getTime() - date.getTime();
     if (difference < 0) {
+      clearInterval(IntervalFunction);
       return;
     }
     const { days, hours, minutes, seconds } = convertMs(difference);
